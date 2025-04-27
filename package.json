@@ -1,0 +1,96 @@
+{
+  "name": "vscode-stylesheet-sort",
+  "displayName": "VSCode StyleSheet Sort",
+  "description": "Sort declarations in your StyleSheet files",
+  "version": "1.0.0",
+  "publisher": "z0gSh1u",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "license": "MIT",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "vscode",
+    "stylesheet",
+    "sort",
+    "css",
+    "scss",
+    "less"
+  ],
+  "icon": "icon.png",
+  "activationEvents": [
+    "onCommand:stylesheet-sort.sort",
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:less"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "stylesheet-sort.sort",
+        "title": "Sort CSS / Less / SCSS Declarations",
+        "category": "StyleSheet Sort"
+      }
+    ],
+    "configuration": {
+      "title": "StyleSheet Sort",
+      "properties": {
+        "stylesheetSort.order": {
+          "type": "string",
+          "enum": [
+            "alphabetical",
+            "smacss",
+            "concentric-css"
+          ],
+          "default": "smacss",
+          "description": "The order to sort CSS declarations by."
+        },
+        "stylesheetSort.keepOverrides": {
+          "type": "boolean",
+          "default": false,
+          "description": "Keep shorthand declarations overriding longhand declarations in their original order."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "watch": "tsc -watch -p ./",
+    "compile": "tsc -p ./",
+    "build": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
+    "vscode:prepublish": "npm run build",
+    "package": "vsce package",
+    "clean": "git clean -dfX",
+    "test": "jest"
+  },
+  "dependencies": {
+    "css-declaration-sorter": "^7.2.0",
+    "postcss": "^8.5.3",
+    "postcss-less": "^6.0.0",
+    "postcss-scss": "^4.0.9",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.15.2",
+    "@types/postcss-less": "^4.0.6",
+    "@types/vscode": "^1.80.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.3.2",
+    "esbuild": "^0.25.3",
+    "jest": "^29.7.0",
+    "mocha": "^11.1.0",
+    "ts-jest": "^29.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/z0gSh1u/vscode-stylesheet-sort"
+  },
+  "bugs": {
+    "url": "https://github.com/z0gSh1u/vscode-stylesheet-sort/issues"
+  },
+  "homepage": "https://github.com/z0gSh1u/vscode-stylesheet-sort"
+}
