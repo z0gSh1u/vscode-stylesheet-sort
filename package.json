@@ -62,6 +62,7 @@
     "build": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node",
     "vscode:prepublish": "npm run build",
     "package": "vsce package",
+    "publish": "start https://marketplace.visualstudio.com/manage/publishers",
     "clean": "git clean -dfX",
     "test": "jest"
   },
