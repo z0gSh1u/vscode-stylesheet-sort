@@ -1,6 +1,6 @@
 {
   "name": "vscode-stylesheet-sort",
-  "displayName": "VSCode StyleSheet Sort",
+  "displayName": "StyleSheet Sort",
   "description": "Sort declarations in your StyleSheet files",
   "version": "1.0.0",
   "publisher": "z0gSh1u",
